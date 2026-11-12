@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swot-miz-eddy"
+version = "0.1.0"
+description = "SWOT sea-ice eddy detection toolkit"
+requires-python = ">=3.10"
+# gdal is not included here. Use Conda to install gdal
+dependencies = [
+    "earthaccess>=0.19",
+    "shapely",
+    "numpy",
+]
+
+[tool.setuptools.packages.find]
+# Flat layout: the package lives at the repo root. The include filter is required,
+# otherwise setuptools treats valid identifier-named dirs like configs/ and data/ as
+# packages too (scripts/ is already in its default exclude list).
+include = ["swot_miz_eddy*"]
